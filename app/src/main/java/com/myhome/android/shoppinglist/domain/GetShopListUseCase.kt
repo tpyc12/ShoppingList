@@ -1,8 +1,8 @@
 package com.myhome.android.shoppinglist.domain
 
-class GetShopListUseCase {
+class GetShopListUseCase(private val repo: ShopListRepository) {
 
     fun getShopList(): List<ShopItem>{
-        TODO()
+        return repo.getShopList()
     }
 }

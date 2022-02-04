@@ -1,8 +1,8 @@
 package com.myhome.android.shoppinglist.domain
 
-class DeleteShopItemUseCase {
+class DeleteShopItemUseCase(private val repo: ShopListRepository) {
 
-    fun deleteShoppingItem(shopItem: ShopItem) {
-
+    fun deleteShopItem(shopItem: ShopItem) {
+        repo.deleteShopItem(shopItem)
     }
 }
