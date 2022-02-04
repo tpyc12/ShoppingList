@@ -1,8 +1,12 @@
 package com.myhome.android.shoppinglist.domain
 
-data class ShopItem (
-    val id: Int,
+data class ShopItem(
     val name: String,
     val count: Int,
-    val enabled: Boolean
-)
+    val enabled: Boolean,
+    var id: Int = UNDEFINED_ID
+) {
+    companion object {
+        const val UNDEFINED_ID = -1
+    }
+}
