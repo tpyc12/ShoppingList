@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.myhome.android.shoppinglist.databinding.ActivityMainBinding
+import com.myhome.android.shoppinglist.presentation.ShopItemActivity.Companion.newIntentAdd
+import com.myhome.android.shoppinglist.presentation.ShopItemActivity.Companion.newIntentEdit
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.MAX_POOL_SIZE
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.VIEW_TYPE_DISABLED
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.VIEW_TYPE_ENABLED
@@ -28,6 +30,11 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.shopList.observe(this) {
             shopListAdapter.submitList(it)
+        }
+
+        ui.floatingActionButton.setOnClickListener {
+            val intent = newIntentAdd(this)
+            startActivity(intent)
         }
     }
 
@@ -68,7 +75,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupClickListener() {
         shopListAdapter.onShopItemClickListener = {
-            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show()
+            val intent = newIntentEdit(this, it.id)
+            startActivity(intent)
         }
     }
 
