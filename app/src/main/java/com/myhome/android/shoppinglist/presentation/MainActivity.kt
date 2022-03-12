@@ -82,7 +82,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupLongClickListener() {
         shopListAdapter.onShopItemLongClickListener = {
-            Toast.makeText(this, "LongClick ${it.enabled}", Toast.LENGTH_SHORT).show()
             viewModel.editShopItem(it)
         }
     }
