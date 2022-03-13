@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.myhome.android.shoppinglist.databinding.ActivityMainBinding
-import com.myhome.android.shoppinglist.presentation.ShopItemFragment.Companion.newIntentAdd
-import com.myhome.android.shoppinglist.presentation.ShopItemFragment.Companion.newIntentEdit
+import com.myhome.android.shoppinglist.presentation.ShopItemActivity.Companion.newIntentAdd
+import com.myhome.android.shoppinglist.presentation.ShopItemActivity.Companion.newIntentEdit
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.MAX_POOL_SIZE
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.VIEW_TYPE_DISABLED
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.VIEW_TYPE_ENABLED
