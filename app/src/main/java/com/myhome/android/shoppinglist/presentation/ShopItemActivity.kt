@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.myhome.android.shoppinglist.databinding.ActivityShopItemBinding
 import com.myhome.android.shoppinglist.domain.ShopItem
 
-class ShopItemActivity : AppCompatActivity() {
+class ShopItemActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
 
     private lateinit var binding: ActivityShopItemBinding
 
@@ -72,5 +72,9 @@ class ShopItemActivity : AppCompatActivity() {
             intent.putExtra(EXTRA_SHOP_ITEM_ID, shopItemId)
             return intent
         }
+    }
+
+    override fun onEditingFinished() {
+        finish()
     }
 }

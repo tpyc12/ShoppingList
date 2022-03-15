@@ -1,6 +1,7 @@
 package com.myhome.android.shoppinglist.presentation
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
@@ -17,7 +18,7 @@ import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.MA
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.VIEW_TYPE_DISABLED
 import com.myhome.android.shoppinglist.presentation.ShopListAdapter.Companion.VIEW_TYPE_ENABLED
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -112,5 +113,10 @@ class MainActivity : AppCompatActivity() {
         shopListAdapter.onShopItemLongClickListener = {
             viewModel.editShopItem(it)
         }
+    }
+
+    override fun onEditingFinished() {
+        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+        supportFragmentManager.popBackStack()
     }
 }
